@@ -1,0 +1,10 @@
+APM Query
+ from (from ApplicationAgentContext SELECT count(*) FACET appName,agent.language,agent.version  limit max ) SELECT appName,agent.language,agent.version limit max SINCE 1 week ago
+
+Infra Query
+SELECT count(*) FROM SystemSample WHERE entityName  Not LIKE 'aks%'  AND  provider = 'AzureVirtualMachine' FACET name,agentVersion  SINCE  1 day ago LIMIT max
+
+
+
+
+
